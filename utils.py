@@ -3,6 +3,7 @@ Utility functions using vulnerable dependencies.
 """
 
 import urllib3
+import requests
 import yaml
 from jinja2 import Template
 from PIL import Image
@@ -27,6 +28,12 @@ def fetch_url(url):
     http = urllib3.PoolManager()
     response = http.request('GET', url)
     return response.data
+
+
+def fetch_url_requests(url):
+    """Fetch URL using requests library"""
+    r = requests.get(url, timeout=5)
+    return r.text
 
 
 def encrypt_data(data, key=None):
