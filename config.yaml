@@ -1,0 +1,42 @@
+# Configuration file for the test project
+# This file is parsed using PyYAML (vulnerable version 5.4.1)
+
+project:
+  name: "Vulnerable Dependencies Test"
+  version: "1.0.0"
+  description: "Test project with known vulnerable dependencies"
+
+dependencies:
+  urllib3: "1.26.0"
+  cryptography: "43.0.3"
+  pillow: "8.2.0"
+  jinja2: "2.11.3"
+  pyyaml: "5.4.1"
+
+vulnerabilities:
+  - package: "urllib3"
+    version: "1.26.0"
+    cves:
+      - "CVE-2021-33503"
+      - "CVE-2021-23336"
+  
+  - package: "cryptography"
+    version: "43.0.3"
+    cves:
+      - "GHSA-79v4-65xg-pq4g"
+  
+  - package: "pillow"
+    version: "8.2.0"
+    cves:
+      - "CVE-2021-27921"
+  
+  - package: "jinja2"
+    version: "2.11.3"
+    cves:
+      - "CVE-2020-28493"
+  
+  - package: "pyyaml"
+    version: "5.4.1"
+    cves:
+      - "CVE-2020-14343"
+
